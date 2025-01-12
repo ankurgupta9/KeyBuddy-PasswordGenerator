@@ -1,8 +1,12 @@
-# React + Vite
+# KeyBuddy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+KeyBuddy is simple random secure password generator using custom filters.
+This project created for the learning purpose.
+Features- 
+1. Adjustable password length
+2. Use numbers
+3. Use special characters
+4. Easy to read(removes character looks similar ie. I,l,1,0,o,O)
+5. Add prefix/suffix
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Thanks for visiting
