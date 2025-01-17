@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { useState } from "react"
+import bgimage from "/bgimage.jpg";
 
 function App() {
   const [length, setLength] = useState(6);
@@ -19,11 +20,11 @@ function App() {
 
     let pass = "";
     let str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let sim = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXY3456789";
+    let sim = "abcdefghkmnpqrstuvwxyzABCDEFGHKMNPQRTUVWXY";
 
     if (number) str += "1234567890"
+    if (simple) { str = sim; if(number){str += "2346789"}}
     if (char) str += "@#%&-_\*^~/."
-    if (simple) { str = sim; console.log(str); }
     if (!prefix == "") { pass += prefix; }
 
     for (let i = 0; i < length; i++) {
@@ -47,12 +48,16 @@ function App() {
   useEffect(() => { generate_password() }, [setPassword])
 
   return (
-    <div align="center" style={{ backgroundColor: "black", width: "100vw", height: "100vh" }} className="p-5">
-      <h1 className="text-light">KeyBuddy</h1>
+    <div align="center" style={{ backgroundImage: `url(${bgimage})`, backgroundSize: "cover", zIndex: "-1", backgroundPosition: "center", width: "100vw", height: "100vh" }} className="p-5">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-md">
+          <a class="navbar-brand" href="#">KeyBuddy</a>
+        </div>
+      </nav>
 
       <div align="center" className="mt-5 p-3 border border-2 bg-dark border-white rounded-3 w-50" >
         <div align="center" className=" m-2 justify-content-center">
-          <input type="text" name="pass" id="pass" size={40}  className="p-2 border-2 border-primary rounded-3 mx-1 size" value={password} readOnly />
+          <input type="text" name="pass" id="pass" size={40} className="p-2 border-2 border-primary rounded-3 mx-1 size" value={password} readOnly />
           <button className="text-white border-2 btn btn-outline-primary rounded-circle py-3 mx-1" onClick={CopyToClipboard}>copy</button>
           <button className="text-white border-2 btn btn-outline-success rounded-circle py-3 mx-1" onClick={save}>save</button>
         </div>
@@ -63,9 +68,9 @@ function App() {
           <div className="mx-4 my-2"><input type="checkbox" onChange={() => { setIschar((prev) => !prev) }} /><label className="text-white px-2">Special characters</label> </div>
           <div className="mx-4 my-2"><input type="checkbox" onChange={() => { setIssimple((prev) => !prev) }} /><label className="text-white px-2">Easy to read</label> </div>
           <div className="mx-4 my-2"><input type="text" className="rounded px-2 border-primary" size={10} maxLength={5} onChange={(e) => { setPrefix(e.target.value) }} /><label className="text-white px-2">Add prefix</label> </div>
-          <div className="mx-4 my-2"><input type="text" className="rounded px-2 border-primary" size={10} maxLength={5} onChange={(e) => { setSuffex(e.target.value) }} /><label className="text-white px-2">Add suffix</label> </div>
+          <div className="mx-4 my-2"><input type="text" className="rounded px-2 border-primary" size={10} maxLength={5} onChange={(e) => { setSuffex(e.target.value) }} /><label className="text-white px-2">Add suffex</label> </div>
         </div> </div>
-      <button className="btn btn-success m-1" onClick={generate_password}>Generate</button>
+      <button className="btn btn-success m-1 shadow" onClick={generate_password}>Generate</button>
       {localStorage.length > 0 && (
         <div className="w-50">
           <h4 className="text-light text-start">Saved Password:</h4>
