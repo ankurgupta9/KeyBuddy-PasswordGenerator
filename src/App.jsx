@@ -68,7 +68,7 @@ function App() {
           <div className="mx-4 my-2"><input type="checkbox" onChange={() => { setIschar((prev) => !prev) }} /><label className="text-white px-2">Special characters</label> </div>
           <div className="mx-4 my-2"><input type="checkbox" onChange={() => { setIssimple((prev) => !prev) }} /><label className="text-white px-2">Easy to read</label> </div>
           <div className="mx-4 my-2"><input type="text" className="rounded px-2 border-primary" size={10} maxLength={5} onChange={(e) => { setPrefix(e.target.value) }} /><label className="text-white px-2">Add prefix</label> </div>
-          <div className="mx-4 my-2"><input type="text" className="rounded px-2 border-primary" size={10} maxLength={5} onChange={(e) => { setSuffex(e.target.value) }} /><label className="text-white px-2">Add suffex</label> </div>
+          <div className="mx-4 my-2"><input type="text" className="rounded px-2 border-primary" size={10} maxLength={5} onChange={(e) => { setSuffex(e.target.value) }} /><label className="text-white px-2">Add suffix</label> </div>
         </div> </div>
       <button className="btn btn-success m-1 shadow" onClick={generate_password}>Generate</button>
       {localStorage.length > 0 && (
